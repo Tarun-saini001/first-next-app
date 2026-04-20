@@ -59,7 +59,7 @@ export async function POST(req: Request) {
         console.log("OTP:", otp);
         return NextResponse.json({
             message:"OTP sent successfully"
-        })
+        },{status:200})
     } catch (error) {
         console.log('failed to reister', error);
           return NextResponse.json(
