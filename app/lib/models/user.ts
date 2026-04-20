@@ -6,7 +6,10 @@ const userSchema = new Schema({
     gender:String,
     company:String,
     profile:String,
-    address:String
+    address:String,
+    password:String,
+    email:String,
+    isVerified:{ type: Boolean, default: false },
 },{
     timestamps:true
 })

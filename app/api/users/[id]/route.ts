@@ -2,7 +2,7 @@ import connectDB from "@/app/lib/db";
 import {
     getUserById,
     updateUser,
-    deleteUser
+    deleteUser       
 } from "@/app/services/user.service"
 import { NextResponse } from "next/server";
 
