@@ -21,6 +21,14 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
+      <div className=' w-full flex justify-center items-center mb-2 '>
+        <Link
+          href="/login"
+          className=" bg-teal-600 hover:bg-teal-700 text-white  py-3 px-3 rounded-lg transition"
+        >
+          Login
+        </Link>
+      </div>
       <div className="flex justify-between mb-4 w-[48%]">
         <h1 className="text-3xl font-bold text-gray-800">
           Users List

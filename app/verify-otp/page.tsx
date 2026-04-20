@@ -100,6 +100,7 @@ export default function VerifyOtpPage() {
                     otp_type: otpType,
                     name,
                     password,
+                    confirmPassword
                 }),
             });
 

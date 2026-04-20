@@ -9,12 +9,19 @@ export async function POST(req: Request) {
     try {
         await connectDB();
 
-        const { email, otp, otp_type, name, password, confirmPassword } = await req.json();
+        const { email, otp_type, name, password, confirmPassword } = await req.json();
+        console.log('email: ', email);
+        console.log('otp_type: ', otp_type);
+        console.log('name: ', name);
+        console.log('password: ', password);
+        console.log('confirmPassword: ', confirmPassword);
+        
 
         const otpRecord = await OTP.findOne({
             email,
             type: otp_type,
         });
+        console.log('otpRecord: ', otpRecord);
 
         if (!otpRecord) {
             return NextResponse.json(
@@ -36,8 +43,9 @@ export async function POST(req: Request) {
                     return NextResponse.json({ message: "Password do not match" }, { status: 400 })
                 }
                 const existingUser = await User.findOne({ email });
-                if (!existingUser) {
-                    return NextResponse.json({ message: "User Not Found", data: {} }, { status: 400 })
+                console.log('existingUser: ', existingUser);
+                if (existingUser) {
+                    return NextResponse.json({ message: "User already verified", data: {} }, { status: 400 })
                 }
                 const hashedPassword = await bcrypt.hash(password, 10);
 
